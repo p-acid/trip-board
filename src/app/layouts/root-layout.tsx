@@ -6,8 +6,8 @@ import "@/app/styles/globals.css";
 
 export const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="ko">
-      <body>
+    <html lang="ko" className="h-full">
+      <body className="h-full">
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

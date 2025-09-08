@@ -1,20 +1,24 @@
+"use client";
+
+import { PAGE_ROUTES } from "@/shared/constants/page-routes";
 import { Button } from "@/shared/ui";
+import { useRouter } from "next/navigation";
 
 export const HomePage = () => {
+  const { push } = useRouter();
+
   return (
     <div>
-      <Button size="default" variant="brand">
-        브랜드 버튼
-      </Button>
-      <Button size="default" variant="destructive">
-        경고 버튼
-      </Button>
-      <Button size="default" variant="link">
-        링크 버튼
-      </Button>
-      <Button size="default" variant="outline">
-        아웃라인 버튼
-      </Button>
+      <div className="p-4">
+        <Button
+          size="default"
+          variant="brand"
+          className="w-full"
+          onClick={() => push(PAGE_ROUTES.PLANING)}
+        >
+          시작하기
+        </Button>
+      </div>
     </div>
   );
 };
