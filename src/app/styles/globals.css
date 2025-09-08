@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(0, 0%, 100%);
+  --color-foreground: hsl(0, 0%, 3.9%);
+  --color-brand: hsl(222 47% 36%);
+  --color-brand-foreground: hsl(0 0% 100%);
+  --color-destructive: hsl(0, 84.2%, 48%);
+  --color-destructive-foreground: hsl(210, 40%, 98%);
+  --color-border: hsl(0, 0%, 89.8%);
+  --color-input: hsl(0, 0%, 89.8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}

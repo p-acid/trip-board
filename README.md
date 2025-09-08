@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trip Board (트립 보드)
 
-## Getting Started
+한국어 협업 여행 계획 애플리케이션입니다. 사용자들이 Trip Board 링크를 공유하고, 콘텐츠를 추가하며, 여행 일정 항목에 투표하여 협업적인 여행 타임라인을 구성할 수 있습니다.
 
-First, run the development server:
+## 기술 스택
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript (strict mode)
+- **Styling**: TailwindCSS 4.0
+- **Architecture**: App Router + Custom Pages Organization
+
+## 개발 환경 설정
+
+### 요구사항
+
+- Node.js 18+ 
+- npm
+
+### 설치
+
+```bash
+npm install
+```
+
+### 개발 서버 실행
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+개발 서버가 [http://localhost:3000](http://localhost:3000)에서 실행됩니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 스크립트
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 개발
+```bash
+npm run dev          # 개발 서버 시작
+npm run build        # 프로덕션 빌드
+npm run start        # 프로덕션 서버 시작
+npm run lint         # ESLint 실행
+```
 
-## Learn More
+### 품질 관리
+프로젝트는 pre-commit 훅을 통해 자동으로 다음을 실행합니다:
+- TypeScript 컴파일 검사
+- Prettier 코드 포맷팅
+- ESLint 검사 및 자동 수정
 
-To learn more about Next.js, take a look at the following resources:
+## 프로덕션 배포
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# 프로덕션 빌드
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 프로덕션 서버 시작
+npm run start
+```
 
-## Deploy on Vercel
+## 프로젝트 구조
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+├── app/                    # Next.js App Router
+├── src/                    # 메인 애플리케이션 코드
+│   ├── app/               # 앱 레이아웃 및 스타일
+│   ├── pages/             # 페이지 컴포넌트 (기능별 구성)
+│   └── shared/            # 공유 컴포넌트 및 유틸리티
+├── @worklog/              # 작업 로그
+└── pages/                 # 추가 페이지 (필요시)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 개발 가이드라인
+
+- **언어**: 한국어 기반 애플리케이션
+- **타입 안전성**: 엄격한 TypeScript 설정
+- **컴포넌트**: 기능별 구성 및 barrel exports 패턴
+- **커밋**: Conventional Commits 규칙 준수
