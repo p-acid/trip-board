@@ -10,7 +10,7 @@ export const HomePage = () => {
   const { push } = useRouter();
 
   return (
-    <main className="flex min-h-screen flex-col justify-center bg-white px-4">
+    <main className="flex h-full flex-col justify-center bg-white px-4">
       <div className="mb-12 text-center">
         <div className="mb-6 flex justify-center text-6xl">
           <MapPinCheck className="size-12" />
