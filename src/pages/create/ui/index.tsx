@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createTripSchema, type CreateTripFormData } from "../lib/schema";
-import { Button } from "@/shared/ui";
+import { Button, FixedBottomButton, Input } from "@/shared/ui";
 import { useRouter } from "next/navigation";
 import { PAGE_ROUTES } from "@/shared/constants/page-routes";
 
@@ -29,84 +29,54 @@ export const CreatePage = () => {
   };
 
   return (
-    <div className="mx-auto max-w-md p-6">
-      <h1 className="mb-6 text-2xl font-bold">여행 생성</h1>
+    <div className="h-full px-6 pt-8">
+      <h1 className="mb-2 text-2xl font-bold">여행 생성</h1>
+      <p className="mb-8 text-sm text-gray-600">
+        함께할 여행의 기본 정보를 입력해주세요
+      </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <label htmlFor="title" className="mb-1 block text-sm font-medium">
-            일정명
-          </label>
-          <input
-            id="title"
-            type="text"
-            {...register("title")}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="여행 일정명을 입력하세요"
-          />
-          {errors.title && (
-            <p className="mt-1 text-sm text-red-500">{errors.title.message}</p>
-          )}
-        </div>
+      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          id="title"
+          type="text"
+          label="일정명"
+          placeholder="여행 일정명을 입력하세요"
+          error={errors.title?.message}
+          {...register("title")}
+        />
 
-        <div>
-          <label
-            htmlFor="destination"
-            className="mb-1 block text-sm font-medium"
-          >
-            여행지
-          </label>
-          <input
-            id="destination"
-            type="text"
-            {...register("destination")}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="여행지를 입력하세요"
-          />
-          {errors.destination && (
-            <p className="mt-1 text-sm text-red-500">
-              {errors.destination.message}
-            </p>
-          )}
-        </div>
+        <Input
+          id="destination"
+          type="text"
+          label="여행지"
+          placeholder="여행지를 입력하세요"
+          error={errors.destination?.message}
+          {...register("destination")}
+        />
 
-        <div>
-          <label htmlFor="startDate" className="mb-1 block text-sm font-medium">
-            여행 시작일
-          </label>
-          <input
-            id="startDate"
-            type="date"
-            {...register("startDate")}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.startDate && (
-            <p className="mt-1 text-sm text-red-500">
-              {errors.startDate.message}
-            </p>
-          )}
-        </div>
+        <Input
+          id="startDate"
+          type="date"
+          label="여행 시작일"
+          error={errors.startDate?.message}
+          {...register("startDate")}
+        />
 
-        <div>
-          <label htmlFor="endDate" className="mb-1 block text-sm font-medium">
-            여행 종료일
-          </label>
-          <input
-            id="endDate"
-            type="date"
-            {...register("endDate")}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.endDate && (
-            <p className="mt-1 text-sm text-red-500">
-              {errors.endDate.message}
-            </p>
-          )}
-        </div>
+        <Input
+          id="endDate"
+          type="date"
+          label="여행 종료일"
+          error={errors.endDate?.message}
+          {...register("endDate")}
+        />
 
-        <Button type="submit" disabled={isSubmitting} className="mt-4 w-full">
+        <FixedBottomButton
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full"
+        >
           {isSubmitting ? "생성 중..." : "여행 생성"}
-        </Button>
+        </FixedBottomButton>
       </form>
     </div>
   );
