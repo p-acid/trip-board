@@ -4,7 +4,7 @@ import { MapPinCheck } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { PAGE_ROUTES } from "@/shared/constants/page-routes";
-import { Button } from "@/shared/ui";
+import { Button, FixedBottomButton } from "@/shared/ui";
 
 export const HomePage = () => {
   const { push } = useRouter();
@@ -64,14 +64,14 @@ export const HomePage = () => {
         </div>
       </div>
 
-      <Button
+      <FixedBottomButton
         size="default"
         variant="brand"
         className="w-full"
         onClick={() => push(PAGE_ROUTES.CREATE)}
       >
         여행 계획 시작하기
-      </Button>
+      </FixedBottomButton>
     </main>
   );
 };
