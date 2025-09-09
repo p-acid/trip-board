@@ -74,7 +74,7 @@ export const HomePage = () => {
             size="default"
             variant="brand"
             className="w-full"
-            onClick={() => push(PAGE_ROUTES.PLANING)}
+            onClick={() => push(PAGE_ROUTES.CREATE)}
           >
             여행 계획 시작하기
           </Button>

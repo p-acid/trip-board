@@ -1,4 +1,5 @@
 export const PAGE_ROUTES = {
   HOME: "/",
-  PLANING: "/planning",
+  CREATE: "/create",
+  GATHER: "/gather",
 } as const;
