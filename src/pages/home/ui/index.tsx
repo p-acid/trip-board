@@ -8,7 +8,7 @@ export const HomePage = () => {
   const { push } = useRouter();
 
   return (
-    <div>
+    <main className="h-full">
       <div className="p-4">
         <Button
           size="default"
@@ -19,6 +19,6 @@ export const HomePage = () => {
           시작하기
         </Button>
       </div>
-    </div>
+    </main>
   );
 };
