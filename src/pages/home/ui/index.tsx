@@ -10,76 +10,68 @@ export const HomePage = () => {
   const { push } = useRouter();
 
   return (
-    <main className="flex min-h-screen flex-col justify-center bg-white">
-      <div className="px-6 py-8">
-        <div className="mb-16 text-center">
-          <div className="mb-6 flex justify-center text-6xl">
-            <MapPinCheck className="size-12" />
+    <main className="flex min-h-screen flex-col justify-center bg-white px-4">
+      <div className="mb-12 text-center">
+        <div className="mb-6 flex justify-center text-6xl">
+          <MapPinCheck className="size-12" />
+        </div>
+        <h1 className="mb-4 text-4xl font-bold text-gray-900">트립 보드</h1>
+        <p className="text-brand mb-4 text-lg font-medium">
+          함께 만드는 여행 계획
+        </p>
+        <p className="px-4 text-sm leading-relaxed text-gray-600">
+          친구들과 여행 아이디어를 공유하고
+          <br />
+          투표해서 완벽한 일정을 만들어보세요
+        </p>
+      </div>
+
+      <div className="mb-14 space-y-6">
+        <div className="flex items-start space-x-4">
+          <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
+            1
           </div>
-          <h1 className="mb-4 text-4xl font-bold text-gray-900">트립 보드</h1>
-          <p className="text-brand mb-4 text-lg font-medium">
-            함께 만드는 여행 계획
-          </p>
-          <p className="px-4 text-sm leading-relaxed text-gray-600">
-            친구들과 여행 아이디어를 공유하고
-            <br />
-            투표해서 완벽한 일정을 만들어보세요
-          </p>
+          <div>
+            <p className="mb-1 font-semibold text-gray-900">아이디어 수집</p>
+            <p className="text-sm text-gray-600">
+              여행지, 맛집, 활동을 자유롭게 추가
+            </p>
+          </div>
         </div>
 
-        <div className="mb-12">
-          <div className="mb-16 space-y-6">
-            <div className="flex items-start space-x-4">
-              <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
-                1
-              </div>
-              <div>
-                <p className="mb-1 font-semibold text-gray-900">
-                  아이디어 수집
-                </p>
-                <p className="text-sm text-gray-600">
-                  여행지, 맛집, 활동을 자유롭게 추가
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
-                2
-              </div>
-              <div>
-                <p className="mb-1 font-semibold text-gray-900">투표로 결정</p>
-                <p className="text-sm text-gray-600">
-                  팀원들과 함께 최고의 선택지를 결정
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
-                3
-              </div>
-              <div>
-                <p className="mb-1 font-semibold text-gray-900">
-                  타임라인 완성
-                </p>
-                <p className="text-sm text-gray-600">
-                  선택된 계획을 시간순으로 정리
-                </p>
-              </div>
-            </div>
+        <div className="flex items-start space-x-4">
+          <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
+            2
           </div>
+          <div>
+            <p className="mb-1 font-semibold text-gray-900">투표로 결정</p>
+            <p className="text-sm text-gray-600">
+              팀원들과 함께 최고의 선택지를 결정
+            </p>
+          </div>
+        </div>
 
-          <Button
-            size="default"
-            variant="brand"
-            className="w-full"
-            onClick={() => push(PAGE_ROUTES.CREATE)}
-          >
-            여행 계획 시작하기
-          </Button>
+        <div className="flex items-start space-x-4">
+          <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
+            3
+          </div>
+          <div>
+            <p className="mb-1 font-semibold text-gray-900">타임라인 완성</p>
+            <p className="text-sm text-gray-600">
+              선택된 계획을 시간순으로 정리
+            </p>
+          </div>
         </div>
       </div>
+
+      <Button
+        size="default"
+        variant="brand"
+        className="w-full"
+        onClick={() => push(PAGE_ROUTES.CREATE)}
+      >
+        여행 계획 시작하기
+      </Button>
     </main>
   );
 };
