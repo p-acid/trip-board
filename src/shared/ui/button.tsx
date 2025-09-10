@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        brand: "bg-brand text-brand-foreground active:bg-brand/90",
+        brand: "bg-brand-500 text-brand-foreground active:bg-brand-500/90",
         outline:
           "text-foreground border-border bg-background active:bg-foreground/5 border",
         destructive:

@@ -3,7 +3,16 @@
 @theme {
   --color-background: hsl(0, 0%, 100%);
   --color-foreground: hsl(0, 0%, 3.9%);
-  --color-brand: hsl(222 47% 36%);
+  --color-brand-50: hsl(222, 47%, 97%);
+  --color-brand-100: hsl(222, 47%, 92%);
+  --color-brand-200: hsl(222, 47%, 84%);
+  --color-brand-300: hsl(222, 47%, 71%);
+  --color-brand-400: hsl(222, 47%, 53%);
+  --color-brand-500: hsl(222, 47%, 36%);
+  --color-brand-600: hsl(222, 47%, 29%);
+  --color-brand-700: hsl(222, 47%, 24%);
+  --color-brand-800: hsl(222, 47%, 20%);
+  --color-brand-900: hsl(222, 47%, 17%);
   --color-brand-foreground: hsl(0 0% 100%);
   --color-destructive: hsl(0, 84.2%, 48%);
   --color-destructive-foreground: hsl(210, 40%, 98%);

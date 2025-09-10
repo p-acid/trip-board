@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createTripSchema, type CreateTripFormData } from "../lib/schema";
-import { FixedBottomButton, Input } from "@/shared/ui";
+import { FixedBottomButton, Input, Calendar } from "@/shared/ui";
 import { useRouter } from "next/navigation";
 import { PAGE_ROUTES } from "@/shared/constants/page-routes";
 import { ChevronLeft } from "lucide-react";
@@ -31,6 +31,7 @@ export const CreatePage = () => {
     watch,
     trigger,
     clearErrors,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<CreateTripFormData>({
     resolver: zodResolver(createTripSchema),
@@ -141,21 +142,38 @@ export const CreatePage = () => {
       case STEPS.DATES:
         return (
           <div className="space-y-6">
-            <Input
-              id="startDate"
-              type="date"
-              label="시작일"
-              error={errors.startDate?.message}
-              {...register("startDate")}
+            <Calendar
+              startDate={
+                watchedValues.startDate
+                  ? new Date(watchedValues.startDate)
+                  : undefined
+              }
+              endDate={
+                watchedValues.endDate
+                  ? new Date(watchedValues.endDate)
+                  : undefined
+              }
+              onDateSelect={(startDate, endDate) => {
+                if (startDate) {
+                  setValue("startDate", startDate.toISOString().split("T")[0]);
+                }
+                if (endDate) {
+                  setValue("endDate", endDate.toISOString().split("T")[0]);
+                }
+              }}
             />
 
-            <Input
-              id="endDate"
-              type="date"
-              label="종료일"
-              error={errors.endDate?.message}
-              {...register("endDate")}
-            />
+            {/* 숨겨진 input 필드들 (폼 검증용) */}
+            <div className="hidden">
+              <input type="date" {...register("startDate")} />
+              <input type="date" {...register("endDate")} />
+            </div>
+
+            {(errors.startDate || errors.endDate) && (
+              <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
+                {errors.startDate?.message || errors.endDate?.message}
+              </div>
+            )}
           </div>
         );
 

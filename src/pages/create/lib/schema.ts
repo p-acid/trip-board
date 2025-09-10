@@ -1,4 +1,5 @@
 import { z } from "zod";
+import dayjs from "dayjs";
 
 export const createTripSchema = z
   .object({
@@ -13,23 +14,17 @@ export const createTripSchema = z
     startDate: z
       .string()
       .min(1, "여행 시작일을 선택해주세요")
-      .refine(
-        (date) => !isNaN(Date.parse(date)),
-        "올바른 날짜 형식이 아닙니다",
-      ),
+      .refine((date) => dayjs(date).isValid(), "올바른 날짜 형식이 아닙니다"),
     endDate: z
       .string()
       .min(1, "여행 종료일을 선택해주세요")
-      .refine(
-        (date) => !isNaN(Date.parse(date)),
-        "올바른 날짜 형식이 아닙니다",
-      ),
+      .refine((date) => dayjs(date).isValid(), "올바른 날짜 형식이 아닙니다"),
   })
   .refine(
     (data) => {
-      const startDate = new Date(data.startDate);
-      const endDate = new Date(data.endDate);
-      return startDate <= endDate;
+      const startDate = dayjs(data.startDate);
+      const endDate = dayjs(data.endDate);
+      return startDate.isBefore(endDate) || startDate.isSame(endDate);
     },
     {
       message: "여행 종료일은 시작일 이후여야 합니다",

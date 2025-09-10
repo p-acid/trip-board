@@ -16,7 +16,7 @@ export const HomePage = () => {
           <MapPinCheck className="size-12" />
         </div>
         <h1 className="mb-4 text-4xl font-bold text-gray-900">트립 보드</h1>
-        <p className="text-brand mb-4 text-lg font-medium">
+        <p className="text-brand-500 mb-4 text-lg font-medium">
           함께 만드는 여행 계획
         </p>
         <p className="px-4 text-sm leading-relaxed text-gray-600">
@@ -28,7 +28,7 @@ export const HomePage = () => {
 
       <div className="mb-14 space-y-6">
         <div className="flex items-start space-x-4">
-          <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
+          <div className="bg-brand-100 text-brand-600 mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">
             1
           </div>
           <div>
@@ -40,7 +40,7 @@ export const HomePage = () => {
         </div>
 
         <div className="flex items-start space-x-4">
-          <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
+          <div className="bg-brand-100 text-brand-600 mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">
             2
           </div>
           <div>
@@ -52,7 +52,7 @@ export const HomePage = () => {
         </div>
 
         <div className="flex items-start space-x-4">
-          <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
+          <div className="bg-brand-100 text-brand-600 mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">
             3
           </div>
           <div>
